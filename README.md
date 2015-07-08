@@ -14,11 +14,13 @@ This program just wraps it up and provides a command line interface.
 Latest Node.js needs to be installed.
 
 
-## installation
+## Installation
 ------------
 Git checkout the repository
 run the following commands
-> npm install
+```
+npm install
+```
 
 ## Example Usages
 --------------
@@ -56,6 +58,7 @@ For the first run you may not be aware of the ip address used by your hub,
 no-problem just run the cli without "-l" option and the cli will try to discover the hub.
 The IP address of the hub will be on the output of the CLI.
 
+#### Without hub ip address
 ```
 >node harmonyHubCLI.js  -r activities
 Starting hub Discovery
@@ -69,8 +72,8 @@ List of Activities programmed on the Hub
     4. 'Watch a Movie'
     5. 'Watch Tivo'
 ```
-
-### A faster way to execute the same is to provide the hub ip address as an argument
+#### With hub ip address
+This will be a faster way to execute the same.
 ```
 >node harmonyHubCLI.js -l 10.0.1.39 -r activities
 Connecting to hub at 10.0.1.39
