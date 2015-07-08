@@ -73,7 +73,7 @@ ev.on('found_a_hub', function (ip) {
                         if (res.length === 0) {
                             console.log("\tUnable to find any activities on the Hub");
                         } else {
-                            console.log(">List of Activities programmed on the Hub");
+                            console.log("List of Activities programmed on the Hub");
                             for (cnt = 0; cnt < res.length; cnt = cnt + 1) {
                                 console.log("\t" + cnt + ". '" + res[cnt] + "'");
                             }
@@ -86,7 +86,7 @@ ev.on('found_a_hub', function (ip) {
                         if (res.length === 0) {
                             console.log("\tUnable to find any devices on the Hub");
                         } else {
-                            console.log(">List of devices programmed on the Hub");
+                            console.log("List of devices programmed on the Hub");
                             for (cnt = 0; cnt < res.length; cnt = cnt + 1) {
                                 console.log("\t" + cnt + ". '" + res[cnt] + "'");
                             }
@@ -99,7 +99,7 @@ ev.on('found_a_hub', function (ip) {
                         if (res.length === 0) {
                             console.log("\tUnable to find any commands on the device:" + args.device);
                         } else {
-                            console.log(">List of commands supported by device:" + args.device);
+                            console.log("List of commands supported by device:" + args.device);
                             for (cnt = 0; cnt < res.length; cnt = cnt + 1) {
                                 console.log("\t" + cnt + ". '" + res[cnt] + "'");
                             }

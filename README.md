@@ -1,28 +1,30 @@
-# harmonyHubCli: CLI to navigate/execute the commands on harmony hub.
-=======================================
+# harmonyHubCLI
+CLI to navigate/execute the commands on harmony hub.
 
-# What is it
+
+## What is it
 ----------
 Provides a standard command line CLI for navigating the harmony hub and executing commands on it.
+All the work/code has been done by harmonyhubjs-client package (https://github.com/swissmanu/harmonyhubjs-client)
+This program just wraps it up and provides a command line interface.
 
 
-
-# Pre-requisites
+## Pre-requisites
 --------------
 Latest Node.js needs to be installed.
 
 
-# nstallation
+## installation
 ------------
 Git checkout the respoitory
 run the following commands
 > npm install
 
-# Example Usages
+## Example Usages
 --------------
 
 
-## Getting help::
+### Getting help::
 ```
 >node harmonyHubCli.js -h
 usage: harmonyHubCli.js [-h] [-v] [-l HUB] [-r READ] [-a ACTIVITY] [-d DEVICE]
@@ -50,7 +52,7 @@ Optional arguments:
 
 Rest of the results are shown based on how my hub is setup
 
-## Getting list of activities programmed with auto discovery
+### Getting list of activities programmed with auto discovery
 ```
 >node harmonyHubCli.js  -r activities
 Starting hub Discovery
@@ -65,11 +67,11 @@ Connecting to hub at 192.168.xx.yy
     5. 'Watch Tivo'
 ```
 
-## A faster way to execute the same is to provide the hub ip address as an argument
+### A faster way to execute the same is to provide the hub ip address as an argument
 ```
 >node harmonyHubCli.js -l 192.168.xx.yy -r activities
 Connecting to hub at 192.168.xx.yy
->List of Activities programmed on the Hub
+List of Activities programmed on the Hub
     0. 'PowerOff'
     1. 'Play PS3'
     2. 'Listen to Digital Music'
@@ -77,11 +79,11 @@ Connecting to hub at 192.168.xx.yy
     4. 'Watch a Movie'
     5. 'Watch Tivo'
 ```
-## Getting list of devices
+### Getting list of devices
 ```
 >node harmonyHubCli.js -l 192.168.xx.yy -r devices
 Connecting to hub at 192.168.xx.yy
->List of devices programmed on the Hub
+List of devices programmed on the Hub
     0. 'Amplifier'
     1. 'Digital Music Server'
     2. 'TV Room  Sonos (CONNECT)'
@@ -92,11 +94,11 @@ Connecting to hub at 192.168.xx.yy
     7. 'Audio/Video Switch'
 ```
 
-## Getting a list of commands supported by one of the devices
+### Getting a list of commands supported by one of the devices
 ```
 >node harmonyHubCli.js -l 192.168.xx.yy -d 'Amplifier' -r commands
 Connecting to hub at 192.168.xx.yy
->List of commands supported by device:Amplifier
+List of commands supported by device:Amplifier
     0. 'PowerOff'
     1. 'PowerOn'
     2. 'PowerToggle'
@@ -118,7 +120,7 @@ Connecting to hub at 192.168.xx.yy
     18. 'MuteOn'
 ```
 
-## Trigger a command
+### Trigger a command
 ```
 >node harmonyHubCli.js -l 192.168.xx.yy -d 'TV' -c 'VolumeDown'
 Connecting to hub at 192.168.xx.yy
@@ -127,7 +129,7 @@ Sending Action = action={"command"::"VolumeDown","type"::"IRCommand","deviceId":
 Command 'VolumeDown' for device 'TV' executed successfully.
 ```
 
-## Trigger an activity
+### Trigger an activity
 ```
 >node harmonyHubCli.js -l 192.168.xx.yy  -a 'PowerOff'
 Connecting to hub at 192.168.xx.yy
