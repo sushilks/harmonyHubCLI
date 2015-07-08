@@ -1,10 +1,10 @@
 {
-  "name": "harmonyHubCli",
+  "name": "harmonyHubCLI",
   "version": "0.0.1",
   "description": "A CLI for controlling harmony remote hub",
-  "main": "harmonyHubCli.js",
+  "main": "harmonyHubCLI.js",
   "scripts": {
-    "start": "node harmonyHubCli.js"
+    "start": "node harmonyHubCLI.js"
   },
   "dependencies": {
     "harmony-hub-util" : "^1.0.2",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sushiks/harmonyHubCli"
+    "url": "https://github.com/sushilks/harmonyHubCLI"
   },
   "keywords": [
     "harmony",

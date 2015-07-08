@@ -16,18 +16,19 @@ Latest Node.js needs to be installed.
 
 ## installation
 ------------
-Git checkout the respoitory
+Git checkout the repository
 run the following commands
 > npm install
 
 ## Example Usages
 --------------
 
+The Example results are shown based on how my hub is setup.
 
 ### Getting help::
 ```
->node harmonyHubCli.js -h
-usage: harmonyHubCli.js [-h] [-v] [-l HUB] [-r READ] [-a ACTIVITY] [-d DEVICE]
+>node harmonyHubCLI.js -h
+usage: harmonyHubCLI.js [-h] [-v] [-l HUB] [-r READ] [-a ACTIVITY] [-d DEVICE]
                         [-c COMMAND]
 
 
@@ -43,21 +44,23 @@ Optional arguments:
   -a ACTIVITY, --activity ACTIVITY
                         Select a activity
   -d DEVICE, --device DEVICE
-                        Selet a device
+                        Select a device
   -c COMMAND, --command COMMAND
-                        Selet a command to trigger. Device also needs to be
-                        specified when this is used.node harmonyHubCli.js -h
+                        Select a command to trigger. Device also needs to be
+                        specified when this is used.
 
 ```
-
-Rest of the results are shown based on how my hub is setup
 
 ### Getting list of activities programmed with auto discovery
+For the first run you may not be aware of the ip address used by your hub,
+no-problem just run the cli without "-l" option and the cli will try to discover the hub.
+The IP address of the hub will be on the output of the CLI.
+
 ```
->node harmonyHubCli.js  -r activities
+>node harmonyHubCLI.js  -r activities
 Starting hub Discovery
-  Hub Found at :192.168.xx.yy
-Connecting to hub at 192.168.xx.yy
+  Hub Found at :10.0.1.39
+Connecting to hub at 10.0.1.39
 List of Activities programmed on the Hub
     0. 'PowerOff'
     1. 'Play PS3'
@@ -69,8 +72,8 @@ List of Activities programmed on the Hub
 
 ### A faster way to execute the same is to provide the hub ip address as an argument
 ```
->node harmonyHubCli.js -l 192.168.xx.yy -r activities
-Connecting to hub at 192.168.xx.yy
+>node harmonyHubCLI.js -l 10.0.1.39 -r activities
+Connecting to hub at 10.0.1.39
 List of Activities programmed on the Hub
     0. 'PowerOff'
     1. 'Play PS3'
@@ -81,8 +84,8 @@ List of Activities programmed on the Hub
 ```
 ### Getting list of devices
 ```
->node harmonyHubCli.js -l 192.168.xx.yy -r devices
-Connecting to hub at 192.168.xx.yy
+>node harmonyHubCLI.js -l 10.0.1.39 -r devices
+Connecting to hub at 10.0.1.39
 List of devices programmed on the Hub
     0. 'Amplifier'
     1. 'Digital Music Server'
@@ -96,8 +99,8 @@ List of devices programmed on the Hub
 
 ### Getting a list of commands supported by one of the devices
 ```
->node harmonyHubCli.js -l 192.168.xx.yy -d 'Amplifier' -r commands
-Connecting to hub at 192.168.xx.yy
+>node harmonyHubCLI.js -l 10.0.1.39 -d 'Amplifier' -r commands
+Connecting to hub at 10.0.1.39
 List of commands supported by device:Amplifier
     0. 'PowerOff'
     1. 'PowerOn'
@@ -121,18 +124,35 @@ List of commands supported by device:Amplifier
 ```
 
 ### Trigger a command
+Once you have been able to identify the devices and the commands they support,
+you can make a note of the command that are of interest and then execute those specific commands.
+Here is a sample to decrease the volume on the TV.
+
 ```
->node harmonyHubCli.js -l 192.168.xx.yy -d 'TV' -c 'VolumeDown'
-Connecting to hub at 192.168.xx.yy
+>node harmonyHubCLI.js -l 10.0.1.39 -d 'TV' -c 'VolumeDown'
+Connecting to hub at 10.0.1.39
 Triggering On device TV command VolumeDown
 Sending Action = action={"command"::"VolumeDown","type"::"IRCommand","deviceId"::"xxxxxxxx"}:status=press
 Command 'VolumeDown' for device 'TV' executed successfully.
 ```
 
 ### Trigger an activity
+Similarly you may want to trigger an activity.
+
+Here is an example to trigger the activity called 'Watch a Movie'
+
 ```
->node harmonyHubCli.js -l 192.168.xx.yy  -a 'PowerOff'
-Connecting to hub at 192.168.xx.yy
+>node harmonyHubCLI.js -l 10.0.1.39  -a 'Watch a Movie'
+Connecting to hub at 10.0.1.39
+Starting Activity Watch a Movie
+Activity 'Watch a Movie' executed successfully.
+```
+
+Here is an example to trigger turning every thing off
+
+```
+>node harmonyHubCLI.js -l 10.0.1.39  -a 'PowerOff'
+Connecting to hub at 10.0.1.39
 Starting Activity PowerOff
 Activity 'PowerOff' executed successfully.
 ```
