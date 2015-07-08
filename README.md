@@ -58,7 +58,7 @@ Rest of the results are shown based on how my hub is setup
 Starting hub Discovery
   Hub Found at :192.168.xx.yy
 Connecting to hub at 192.168.xx.yy
->List of Activities programmed on the Hub
+List of Activities programmed on the Hub
     0. 'PowerOff'
     1. 'Play PS3'
     2. 'Listen to Digital Music'
