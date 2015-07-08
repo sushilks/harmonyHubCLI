@@ -1,0 +1,29 @@
+{
+  "name": "harmonyHubCli",
+  "version": "0.0.1",
+  "description": "A CLI for controlling harmony remote hub",
+  "main": "harmonyHubCli.js",
+  "scripts": {
+    "start": "node harmonyHubCli.js"
+  },
+  "dependencies": {
+    "harmony-hub-util" : "^1.0.2",
+    "argparse" : "^1.0.2"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sushiks/harmonyHubCli"
+  },
+  "keywords": [
+    "harmony",
+    "logitech"
+  ],
+  "author": "Sushil Singh",
+  "contributors": [
+    "Sushil Singh <sushilks@gmail.com>"
+  ],
+  "license": "MIT"
+}
