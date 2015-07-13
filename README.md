@@ -126,6 +126,52 @@ List of commands supported by device:Amplifier
     18. 'MuteOn'
 ```
 
+### Getting a list of commands supported when an activity is on
+```
+>node harmonyHubCLI.js  -l 10.0.1.39 -a 'Watch Tivo' -r commands
+Connecting to hub at 10.0.1.39
+List of commands supported by activity:Watch Tivo
+    0. 'NumericBasic,0'
+    1. 'NumericBasic,1'
+    2. 'NumericBasic,2'
+    3. 'NumericBasic,3'
+    4. 'NumericBasic,4'
+    5. 'NumericBasic,5'
+    6. 'NumericBasic,6'
+    7. 'NumericBasic,7'
+    8. 'NumericBasic,8'
+    9. 'NumericBasic,9'
+    10. 'Volume,Mute'
+    11. 'Volume,Volume Down'
+    12. 'Volume,Volume Up'
+    13. 'Channel,Prev Channel'
+    14. 'Channel,Channel Down'
+    15. 'Channel,Channel Up'
+    16. 'NavigationBasic,Direction Down'
+    17. 'NavigationBasic,Direction Left'
+    18. 'NavigationBasic,Direction Right'
+    19. 'NavigationBasic,Direction Up'
+    20. 'NavigationBasic,Select'
+    21. 'TransportBasic,Stop'
+    22. 'TransportBasic,Play'
+    23. 'TransportBasic,Rewind'
+    24. 'TransportBasic,Pause'
+    25. 'TransportBasic,Fast Forward'
+    26. 'TransportRecording,Record'
+    27. 'TransportExtended,Frame Advance'
+    28. 'NavigationDVD,Top Menu'
+    29. 'NavigationDVD,Menu'
+    30. 'NavigationDSTB,Live'
+    31. 'TiVo,Thumbs Down'
+    32. 'TiVo,Thumbs Up'
+    33. 'TiVo,TiVo'
+    34. 'NavigationExtended,Guide'
+    35. 'NavigationExtended,Info'
+    36. 'NavigationExtended,Backspace'
+    37. 'DisplayMode,Aspect'
+```
+
+
 ### Trigger a command
 Once you have been able to identify the devices and the commands they support,
 you can make a note of the command that are of interest and then execute those specific commands.
@@ -158,4 +204,14 @@ Here is an example to trigger turning every thing off
 Connecting to hub at 10.0.1.39
 Starting Activity PowerOff
 Activity 'PowerOff' executed successfully.
+```
+
+
+### Trigger a command within an activity
+
+```
+>node harmonyHubCLI.js  -l 10.0.1.39 -a 'Watch Tivo' -c 'Volume,Mute'
+Connecting to hub at 10.0.1.39
+Triggering On Activity Watch Tivo command Volume,Mute
+Command 'Volume,Mute' for activity 'Watch Tivo' executed successfully.
 ```
