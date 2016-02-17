@@ -215,3 +215,24 @@ Connecting to hub at 10.0.1.39
 Triggering On Activity Watch Tivo command Volume,Mute
 Command 'Volume,Mute' for activity 'Watch Tivo' executed successfully.
 ```
+
+### Execute multiple commands, 
+```
+> node harmonyHubCLI.js -l 10.0.1.39 -d 'PVR'   -c '["7","1", "0"]' -m
+Connecting to hub at 10.0.1.39
+Triggering On device PVR command 7
+Triggering On device PVR command 1
+Triggering On device PVR command 0
+Command '["7","1", "0"]' for device 'PVR' executed successfully.
+```
+
+### Execute multiple commands on an activity,
+```
+>node harmonyHubCLI.js -l 10.0.1.39 -a 'Watch Tivo'  -c '["NumericBasic,5", "NumericBasic,5", "NumericBasic,0"]' -m
+Connecting to hub at 10.0.1.39
+execute command received
+Triggering On Activity Watch Tivo command NumericBasic,5
+Triggering On Activity Watch Tivo command NumericBasic,5
+Triggering On Activity Watch Tivo command NumericBasic,0
+Command '["NumericBasic,5", "NumericBasic,5", "NumericBasic,0"]' for activity 'Watch Tivo' executed successfully.
+```

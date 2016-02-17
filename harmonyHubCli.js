@@ -33,6 +33,12 @@ parser.addArgument(
     [ '-c', '--command'],
     { help: 'Select a command to trigger. Device also needs to be specified when this is used.'}
 );
+parser.addArgument(
+    [ '-m', '--multi'],
+    { help: 'Command is a list of multiple commands that is to be executed back to back',
+    action: 'storeTrue', dest: 'multi'}
+);
+
 var args = parser.parseArgs();
 
 var read_list = ['activities', 'devices', 'commands', 'status'];
@@ -151,7 +157,16 @@ ev.on('found_a_hub', function (ip) {
                         }
                     });
                 } else if (args.command !== null && args.device !== null) {
-                    hutils.executeCommand(true, args.device, args.command).then(function (res) {
+                    var cmd = args.command;
+                    if (args.multi) {
+                        try {
+                            cmd = JSON.parse(args.command)
+                        } catch(err) {
+                            console.error(' Unable to parse the JSON in command list ' + args.command);
+                            console.error(err);
+                        }
+                    }
+                    hutils.executeCommand(true, args.device, cmd).then(function (res) {
                         if (res) {
                             console.log("Command '" + args.command + "' for device '" + args.device + "' executed successfully.");
                         } else {
@@ -164,7 +179,16 @@ ev.on('found_a_hub', function (ip) {
                         }
                     });
                 } else if (args.command !== null && args.activity !== null) {
-                    hutils.executeCommand(false, args.activity, args.command).then(function (res) {
+                    var cmd = args.command;
+                    if (args.multi) {
+                        try {
+                            cmd = JSON.parse(args.command)
+                        } catch(err) {
+                            console.error(' Unable to parse the JSON in command list ' + args.command);
+                            console.error(err);
+                        }
+                    }
+                    hutils.executeCommand(false, args.activity, cmd).then(function (res) {
                         if (res) {
                             console.log("Command '" + args.command + "' for activity '" + args.activity + "' executed successfully.");
                         } else {
