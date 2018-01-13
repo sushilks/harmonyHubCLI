@@ -19,6 +19,7 @@ Latest Node.js needs to be installed.
 Git checkout the repository
 run the following commands
 ```
+npm install harmonyhubjs-client harmonyhubjs-discover argparse harmony-hub-util
 npm install
 ```
 
@@ -29,8 +30,8 @@ The Example results are shown based on how my hub is setup.
 
 ### Getting help::
 ```
->node harmonyHubCLI.js -h
-usage: harmonyHubCLI.js [-h] [-v] [-l HUB] [-r READ] [-a ACTIVITY] [-d DEVICE]
+>node harmonyHubCli.js -h
+usage: harmonyHubCli.js [-h] [-v] [-l HUB] [-r READ] [-a ACTIVITY] [-d DEVICE]
                         [-c COMMAND]
 
 
@@ -60,7 +61,7 @@ The IP address of the hub will be on the output of the CLI.
 
 #### Without hub ip address
 ```
->node harmonyHubCLI.js  -r activities
+>node harmonyHubCli.js  -r activities
 Starting hub Discovery
   Hub Found at :10.0.1.39
 Connecting to hub at 10.0.1.39
@@ -75,7 +76,7 @@ List of Activities programmed on the Hub
 #### With hub ip address
 This will be a faster way to execute the same.
 ```
->node harmonyHubCLI.js -l 10.0.1.39 -r activities
+>node harmonyHubCli.js -l 10.0.1.39 -r activities
 Connecting to hub at 10.0.1.39
 List of Activities programmed on the Hub
     0. 'PowerOff'
@@ -87,7 +88,7 @@ List of Activities programmed on the Hub
 ```
 ### Getting list of devices
 ```
->node harmonyHubCLI.js -l 10.0.1.39 -r devices
+>node harmonyHubCli.js -l 10.0.1.39 -r devices
 Connecting to hub at 10.0.1.39
 List of devices programmed on the Hub
     0. 'Amplifier'
@@ -102,7 +103,7 @@ List of devices programmed on the Hub
 
 ### Getting a list of commands supported by one of the devices
 ```
->node harmonyHubCLI.js -l 10.0.1.39 -d 'Amplifier' -r commands
+>node harmonyHubCli.js -l 10.0.1.39 -d 'Amplifier' -r commands
 Connecting to hub at 10.0.1.39
 List of commands supported by device:Amplifier
     0. 'PowerOff'
@@ -128,7 +129,7 @@ List of commands supported by device:Amplifier
 
 ### Getting a list of commands supported when an activity is on
 ```
->node harmonyHubCLI.js  -l 10.0.1.39 -a 'Watch Tivo' -r commands
+>node harmonyHubCli.js  -l 10.0.1.39 -a 'Watch Tivo' -r commands
 Connecting to hub at 10.0.1.39
 List of commands supported by activity:Watch Tivo
     0. 'NumericBasic,0'
@@ -178,7 +179,7 @@ you can make a note of the command that are of interest and then execute those s
 Here is a sample to decrease the volume on the TV.
 
 ```
->node harmonyHubCLI.js -l 10.0.1.39 -d 'TV' -c 'VolumeDown'
+>node harmonyHubCli.js -l 10.0.1.39 -d 'TV' -c 'VolumeDown'
 Connecting to hub at 10.0.1.39
 Triggering On device TV command VolumeDown
 Sending Action = action={"command"::"VolumeDown","type"::"IRCommand","deviceId"::"xxxxxxxx"}:status=press
@@ -191,7 +192,7 @@ Similarly you may want to trigger an activity.
 Here is an example to trigger the activity called 'Watch a Movie'
 
 ```
->node harmonyHubCLI.js -l 10.0.1.39  -a 'Watch a Movie'
+>node harmonyHubCli.js -l 10.0.1.39  -a 'Watch a Movie'
 Connecting to hub at 10.0.1.39
 Starting Activity Watch a Movie
 Activity 'Watch a Movie' executed successfully.
@@ -200,7 +201,7 @@ Activity 'Watch a Movie' executed successfully.
 Here is an example to trigger turning every thing off
 
 ```
->node harmonyHubCLI.js -l 10.0.1.39  -a 'PowerOff'
+>node harmonyHubCli.js -l 10.0.1.39  -a 'PowerOff'
 Connecting to hub at 10.0.1.39
 Starting Activity PowerOff
 Activity 'PowerOff' executed successfully.
@@ -210,7 +211,7 @@ Activity 'PowerOff' executed successfully.
 ### Trigger a command within an activity
 
 ```
->node harmonyHubCLI.js  -l 10.0.1.39 -a 'Watch Tivo' -c 'Volume,Mute'
+>node harmonyHubCli.js  -l 10.0.1.39 -a 'Watch Tivo' -c 'Volume,Mute'
 Connecting to hub at 10.0.1.39
 Triggering On Activity Watch Tivo command Volume,Mute
 Command 'Volume,Mute' for activity 'Watch Tivo' executed successfully.
@@ -218,7 +219,7 @@ Command 'Volume,Mute' for activity 'Watch Tivo' executed successfully.
 
 ### Execute multiple commands, 
 ```
-> node harmonyHubCLI.js -l 10.0.1.39 -d 'PVR'   -c '["7","1", "0"]' -m
+> node harmonyHubCli.js -l 10.0.1.39 -d 'PVR'   -c '["7","1", "0"]' -m
 Connecting to hub at 10.0.1.39
 Triggering On device PVR command 7
 Triggering On device PVR command 1
@@ -228,7 +229,7 @@ Command '["7","1", "0"]' for device 'PVR' executed successfully.
 
 ### Execute multiple commands on an activity,
 ```
->node harmonyHubCLI.js -l 10.0.1.39 -a 'Watch Tivo'  -c '["NumericBasic,5", "NumericBasic,5", "NumericBasic,0"]' -m
+>node harmonyHubCli.js -l 10.0.1.39 -a 'Watch Tivo'  -c '["NumericBasic,5", "NumericBasic,5", "NumericBasic,0"]' -m
 Connecting to hub at 10.0.1.39
 execute command received
 Triggering On Activity Watch Tivo command NumericBasic,5
