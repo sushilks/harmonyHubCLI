@@ -11,15 +11,16 @@ This program just wraps it up and provides a command line interface.
 
 ## Pre-requisites
 --------------
-Latest Node.js needs to be installed.
+Latest Node.js needs to be installed.  
+Run the following command:
 ```
 npm install harmonyhubjs-client harmonyhubjs-discover argparse harmony-hub-util
 ```
 
 ## Installation
 ------------
-Git checkout the repository
-run the following command
+Git checkout the repository.
+Run the following command:
 ```
 npm install
 ```
