@@ -1,6 +1,6 @@
 {
   "name": "harmonyHubCLI",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A CLI for controlling harmony remote hub",
   "main": "harmonyHubCLI.js",
   "bin": {
@@ -10,9 +10,9 @@
     "start": "node harmonyHubCLI.js"
   },
   "dependencies": {
-    "harmony-hub-util" : "^1.1.2",
-    "argparse" : "^1.0.2",
-    "harmonyhubjs-discover": "1.0.0"
+    "argparse": "^1.0.10",
+    "harmony-hub-util": "^1.3.0",
+    "harmonyhubjs-discover": "^1.0.0"
   },
   "engines": {
     "node": "0.12.x"
